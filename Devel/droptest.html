@@ -1,0 +1,303 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>jQuery UI Droppable - Shopping Cart Demo</title>
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<link rel="stylesheet" href="/resources/demos/style.css">
+<style>
+h1 { padding: .2em; margin: 0; }
+#products { float:left; width: 500px; margin-right: 2em; }
+.cart { width: 200px; float: left; margin-top: 1em; }
+/* style the list to maximize the droppable hitarea */
+.cart ol { margin: 0; padding: 1em 0 1em 3em; }
+</style>
+<script>
+$(function() {
+$( "#catalog" ).accordion({
+collapsible: true
+});
+$( "#catalog li" ).draggable({
+appendTo: "body",
+helper: "clone"
+});
+$( ".cart ol" ).droppable({
+activeClass: "ui-state-default",
+hoverClass: "ui-state-hover",
+accept: ":not(.ui-sortable-helper)",
+drop: function( event, ui ) {
+$( this ).find( ".placeholder" ).remove();
+$( "<li></li>" ).text( ui.draggable.text() ).attr("title",ui.draggable.attr("title")).appendTo( this );
+}
+}).sortable({
+items: "li:not(.placeholder)",
+sort: function() {
+// gets added unintentionally by droppable interacting with sortable
+// using connectWithSortable fixes this, but doesn't allow you to customize active/hoverClass options
+$( this ).removeClass( "ui-state-default" );
+}
+});
+});
+
+var XFooProto = Object.create(HTMLElement.prototype);
+
+XFooProto.createdCallback = function() {
+  this.innerHTML = "<b>I'm an x-foo-with-markup!"+this.innerHTML+"</b>";
+};
+
+var XFoo = document.registerElement('x-foo-with-markup', {prototype: XFooProto});
+
+
+
+</script>
+</head>
+<body>
+<div id="products">
+<h1 class="ui-widget-header">Products</h1>
+
+<x-foo-with-markup>John</x-foo-with-markup>
+
+<spec-elements>
+    <spec-reference src="specs/SUMO concept brief 2015.html#1" />
+    <spec-reference src="specs/OCR GCSE 2012.html#2.1.1.d" />
+    
+    <spec-basedocument src="specs/OCR GCSE 2012.html" junk="set the src document of all child spec-reference tags">  
+        <spec-reference src="2.1.1.c" />
+    </spec-basedocument>
+    
+    <spec-import src="specs/OCR GCSE 2012.html" junk="this one would import all the suitable items from a spec document in htmk"/>
+</spec-elements>
+
+<school-calendar></school-calendar>
+<timetable>
+    <lesson schoolweek="2" day="Monday" period="3" length="2">
+</timetable>
+
+<scheme-of-work>
+    <lesson-outline>
+        <learning-outcome spec="specs/OCR GCSE 2012.html#2.1.1.d" level="A">Evaluate the success of suitable professional standards in the development, use and maintenance of computer systems</learning-outcome>
+        <learning-outcome spec="specs/OCR GCSE 2012.html#2.1.1.d" level="B">Explain the need for adherence to suitable professional standards in the development, use and maintenance of computer systems</learning-outcome>
+    </lesson-outline>
+    
+</scheme-of-work>
+
+
+
+<lesson-plan>
+
+    <lesson-outline>
+        <learning-outcome spec="specs/OCR GCSE 2012.html#2.1.1.d" level="A">Evaluate the success of suitable professional standards in the development, use and maintenance of computer systems</learning-outcome>
+        <learning-outcome spec="specs/OCR GCSE 2012.html#2.1.1.d" level="B">Explain the need for adherence to suitable professional standards in the development, use and maintenance of computer systems</learning-outcome>
+    </lesson-outline>
+    <literacy></literacy>
+    <activities junk="could this be a basis for materials / resources?">
+        <kagan></kagan>
+        <plenary></plenary>
+    </activities>
+
+</lesson-plan>
+
+
+
+
+<div id="catalog">
+<h2><a href="#">2.1.1 Fundamentals of computer systems</a></h2><div><ul>
+<li title="2.1.1.a : define a computer system">2.1.1.a</li>
+<li title="2.1.1.b : describe the importance of computer systems in the modern world">2.1.1.b</li>
+<li title="2.1.1.c : explain the need for reliability in computer systems">2.1.1.c</li>
+<li title="2.1.1.d : explain the need for adherence to suitable professional standards in the development, use and maintenance of computer systems">2.1.1.d</li>
+<li title="2.1.1.e : explain the importance of ethical, environmental and legal considerations when creating computer systems.">2.1.1.e</li>
+</ul></div>
+
+<h2><a href="#">2.1.2 Computing hardware</a></h2><div><ul>
+<li title="2.1.2.a : state the purpose of the CPU">2.1.2.a</li>
+<li title="2.1.2.b : describe the function of the CPU as fetching and executing instructions stored in memory">2.1.2.b</li>
+<li title="2.1.2.c : explain how common characteristics of CPUs such as clock speed, cache size and number of cores affect their performance.">2.1.2.c</li>
+<li title="2.1.2.d : explain why data is represented in computer systems in binary form">2.1.2.d</li>
+<li title="2.1.2.e : understand and produce simple logic diagrams using the operations NOT, AND and OR">2.1.2.e</li>
+<li title="2.1.2.f : produce a truth table from a given logic diagram.">2.1.2.f</li>
+<li title="2.1.2.g : describe the difference between RAM and ROM">2.1.2.g</li>
+<li title="2.1.2.h : explain the need for ROM in a computer system">2.1.2.h</li>
+<li title="2.1.2.i : describe the purpose of RAM in a computer system">2.1.2.i</li>
+<li title="2.1.2.j : explain how the amount of RAM in a personal computer affects the performance of the computer">2.1.2.j</li>
+<li title="2.1.2.k : explain the need for virtual memory">2.1.2.k</li>
+<li title="2.1.2.l : describe cache memory">2.1.2.l</li>
+<li title="2.1.2.m : describe flash memory">2.1.2.m</li>
+<li title="2.1.2.n : discuss how changes in memory technologies are leading to innovative computer designs.">2.1.2.n</li>
+<li title="2.1.2.o : understand the need for input and output devices">2.1.2.o</li>
+<li title="2.1.2.p : describe suitable input devices for a wide range of computer controlled situations">2.1.2.p</li>
+<li title="2.1.2.q : describe suitable output devices for a wide range of computer controlled situations">2.1.2.q</li>
+<li title="2.1.2.r : discuss input and output devices for users with specific needs.">2.1.2.r</li>
+<li title="2.1.2.s : explain the need for secondary storage">2.1.2.s</li>
+<li title="2.1.2.t : describe common storage technologies such as optical, magnetic and solid state">2.1.2.t</li>
+<li title="2.1.2.u : select suitable storage devices and storage media for a given application and justify their choice using characteristics such as capacity, speed, portability, durability and reliability.">2.1.2.u</li>
+</ul></div>
+
+<h2><a href="#">2.1.3 Software</a></h2><div><ul>
+<li title="2.1.3.a : explain the need for the following functions of an operating system: user interface, memory management, peripheral management, multi-tasking and security">2.1.3.a</li>
+<li title="2.1.3.b : describe the purpose and use of common utility programs for computer security (antivirus, spyware protection and firewalls), disk organisation (formatting, file transfer, and defragmentation), and system maintenance (system information and diagnosis, system cleanup tools, automatic updating)">2.1.3.b</li>
+<li title="2.1.3.c : discuss the relative merits of custom written, off the shelf, open source and proprietary software.">2.1.3.c</li>
+</ul></div>
+
+<h2><a href="#">2.1.4 Representation of data in computer systems</a></h2><div><ul>
+<li title="2.1.4.a : define the terms bit, nibble, byte, kilobyte, megabyte, gigabyte, terabyte">2.1.4.a</li>
+<li title="2.1.4.b : understand that data needs to be converted into a binary format to be processed by a computer.">2.1.4.b</li>
+<li title="2.1.4.c : convert positive denary whole numbers (0-255) into 8-bit binary numbers and vice versa">2.1.4.c</li>
+<li title="2.1.4.d : add two 8-bit binary integers and explain overflow errors which may occur">2.1.4.d</li>
+<li title="2.1.4.e : convert positive denary whole numbers (0-255) into 2-digit hexadecimal numbers and vice versa">2.1.4.e</li>
+<li title="2.1.4.f : convert between binary and hexadecimal equivalents of the same number">2.1.4.f</li>
+<li title="2.1.4.g : explain the use of hexadecimal numbers to represent binary numbers.">2.1.4.g</li>
+<li title="2.1.4.h : explain the use of binary codes to represent characters">2.1.4.h</li>
+<li title="2.1.4.i : explain the term character set">2.1.4.i</li>
+<li title="2.1.4.j : describe with examples (for example ASCII and Unicode) the relationship between the number of bits per character in a character set and the number of characters which can be represented.">2.1.4.j</li>
+<li title="2.1.4.k : explain the representation of an image as a series of pixels represented in binary">2.1.4.k</li>
+<li title="2.1.4.l : explain the need for metadata to be included in the file such as height, width and colour depth">2.1.4.l</li>
+<li title="2.1.4.m : discuss the effect of colour depth and resolution on the size of an image file.">2.1.4.m</li>
+<li title="2.1.4.n : explain how sound can be sampled and stored in digital form">2.1.4.n</li>
+<li title="2.1.4.o : explain how sampling intervals and other considerations affect the size of a sound file and quality of its playback.">2.1.4.o</li>
+<li title="2.1.4.p : explain how instructions are coded as bit patterns">2.1.4.p</li>
+<li title="2.1.4.q : explain how the computer distinguishes between instructions and data.">2.1.4.q</li>
+</ul></div>
+
+<h2><a href="#">2.1.5 Databases</a></h2><div><ul>
+<li title="2.1.5.a : describe a database as a persistent organised store of data">2.1.5.a</li>
+<li title="2.1.5.b : explain the use of data handling software to create, maintain and interrogate a database.">2.1.5.b</li>
+<li title="2.1.5.c : describe how a DBMS allows the separation of data from applications and why this is desirable">2.1.5.c</li>
+<li title="2.1.5.d : describe the principal features of a DBMS and how they can be used to create customised data handling applications.">2.1.5.d</li>
+<li title="2.1.5.e : understand the relationship between entities and tables">2.1.5.e</li>
+<li title="2.1.5.f : understand the components of a relational database, such as tables, forms, queries, reports and modules">2.1.5.f</li>
+<li title="2.1.5.g : understand the use of logical operators in framing database queries">2.1.5.g</li>
+<li title="2.1.5.h : explain the use of key fields to connect tables and avoid data redundancy">2.1.5.h</li>
+<li title="2.1.5.i : describe methods of validating data as it is input.">2.1.5.i</li>
+</ul></div>
+
+<h2><a href="#">2.1.6 Computer communications and networking</a></h2><div><ul>
+<li title="2.1.6.a : explain the advantages of networking stand-alone computers into a local area network">2.1.6.a</li>
+<li title="2.1.6.b : describe the hardware needed to connect stand-alone computers into a local area network, including hub/switches, wireless access points">2.1.6.b</li>
+<li title="2.1.6.c : explain the different roles of computers in a client-server and a peer-to-peer network">2.1.6.c</li>
+<li title="2.1.6.d : describe, using diagrams or otherwise, the ring, bus and star network topologies">2.1.6.d</li>
+<li title="2.1.6.e : describe the differences between a local area network and a wide area network such as the internet">2.1.6.e</li>
+<li title="2.1.6.f : explain the terms IP addressing, MAC addressing, packet and protocols">2.1.6.f</li>
+<li title="2.1.6.g : explain the need for security measures in networks, such as user access levels, suitable passwords and encryption techniques">2.1.6.g</li>
+<li title="2.1.6.h : describe and justify network policies such as acceptable use, disaster recovery, failover, back up, archiving.">2.1.6.h</li>
+<li title="2.1.6.i : describe the nature of the internet as a worldwide collection of computer networks">2.1.6.i</li>
+<li title="2.1.6.j : describe the hardware needed to connect to the internet including modems, routers">2.1.6.j</li>
+<li title="2.1.6.k : explain the need for IP addressing of resources on the internet and how this can be facilitated by the role of DNS services">2.1.6.k</li>
+<li title="2.1.6.l : explain the importance of HTML and its derivatives as a standard for the creation of web pages">2.1.6.l</li>
+<li title="2.1.6.m : describe common file standards associated with the internet such as JPG, GIF, PDF, MP3, MPEG">2.1.6.m</li>
+<li title="2.1.6.n : explain the importance of compressing files that are transmitted via the internet">2.1.6.n</li>
+<li title="2.1.6.o : describe the differences between lossy and lossless compression.">2.1.6.o</li>
+</ul></div>
+
+<h2><a href="#">2.1.7 Programming</a></h2><div><ul>
+<li title="2.1.7.a : understand algorithms (written in pseudocode or flow diagram), explain what they do, and correct or complete them">2.1.7.a</li>
+<li title="2.1.7.b : produce algorithms in pseudocode or flow diagrams to solve problems.">2.1.7.b</li>
+<li title="2.1.7.c : explain the difference between high level code and machine code">2.1.7.c</li>
+<li title="2.1.7.d : explain the need for translators to convert high level code to machine code">2.1.7.d</li>
+<li title="2.1.7.e : describe the characteristics of an assembler, a compiler and an interpreter">2.1.7.e</li>
+<li title="2.1.7.f : describe common tools and facilities available in an integrated development environment (IDE): editors, error diagnostics, run-time environment, translators, auto-documentation.">2.1.7.f</li>
+<li title="2.1.7.g : understand and use sequence in an algorithm">2.1.7.g</li>
+<li title="2.1.7.h : understand and use selection in an algorithm (IF and CASE statements)">2.1.7.h</li>
+<li title="2.1.7.i : understand and use iteration in an algorithm (FOR, WHILE and REPEAT loops).">2.1.7.i</li>
+<li title="2.1.7.j : define the terms variable and constant as used in an imperative language">2.1.7.j</li>
+<li title="2.1.7.k : use variables and constants">2.1.7.k</li>
+<li title="2.1.7.l : describe the data types integer, real, Boolean, character and string">2.1.7.l</li>
+<li title="2.1.7.m : select and justify appropriate data types for a given program">2.1.7.m</li>
+<li title="2.1.7.n : perform common operations on numeric and Boolean data">2.1.7.n</li>
+<li title="2.1.7.o : use one-dimensional arrays.">2.1.7.o</li>
+<li title="2.1.7.p : describe syntax errors and logic errors which may occur while developing a program">2.1.7.p</li>
+<li title="2.1.7.q : understand and identify syntax and logic errors">2.1.7.q</li>
+<li title="2.1.7.r : select and justify test data for a program, stating the expected outcome of each test.">2.1.7.r</li>
+</ul></div>
+
+
+<h2><a href="#">2.2.1 Practical activity</a></h2><div><ul>
+<li title="2.2.1.a : plan and carry out a practical investigation of a topic">2.2.1.a</li>
+<li title="2.2.1.b : use practical skills effectively and efficiently to develop solutions to problems">2.2.1.b</li>
+<li title="2.2.1.c : test their solutions">2.2.1.c</li>
+<li title="2.2.1.d : evaluate and modify these solutions in light of test results.">2.2.1.d</li>
+</ul></div>
+
+<h2><a href="#">2.2.2 Effectiveness and efficiency</a></h2><div><ul>
+<li title="2.2.2.a : select suitable techniques for the development of their solution">2.2.2.a</li>
+<li title="2.2.2.b : use suitable techniques to solve all aspects of the problem">2.2.2.b</li>
+<li title="2.2.2.c : deploy practical techniques in an efficient and logical manner.">2.2.2.c</li>
+</ul></div>
+
+<h2><a href="#">2.2.3 Technical understanding</a></h2><div><ul>
+<li title="2.2.3.a : show an understanding of the relevant information by presenting evidence of the development of their solutions">2.2.3.a</li>
+<li title="2.2.3.b : show an understanding of the technical terminology/concepts that arise from their investigation through their analysis of the data collected">2.2.3.b</li>
+<li title="2.2.3.c : use the terminology/concepts surrounding their topic and contained in the information collected, correctly when it comes to producing their analysis in the supporting script.">2.2.3.c</li>
+</ul></div>
+
+<h2><a href="#">2.2.4 Testing, evaluation and conclusions</a></h2><div><ul>
+<li title="2.2.4.a : produce a full report covering all aspects of the investigation">2.2.4.a</li>
+<li title="2.2.4.b : present the information in a clear form which is understandable by a third party and which is easily navigable">2.2.4.b</li>
+<li title="2.2.4.c : critically appraise the evidence that they have presented">2.2.4.c</li>
+<li title="2.2.4.d : test their own solution">2.2.4.d</li>
+<li title="2.2.4.e : present their evaluation in a relevant, clear, organised, structured and coherent format">2.2.4.e</li>
+<li title="2.2.4.f : use specialist terms correctly and appropriately">2.2.4.f</li>
+<li title="2.2.4.g : present a conclusion to the report">2.2.4.g</li>
+<li title="2.2.4.h : justify their conclusions based on the evidence provided.">2.2.4.h</li>
+</ul></div>
+
+
+<h2><a href="#">2.3.1 Programming techniques</a></h2><div><ul>
+<li title="2.3.1.a : identify and use variables, operators, inputs, outputs and assignments">2.3.1.a</li>
+<li title="2.3.1.b : understand and use the three basic programming constructs used to control the flow of a program: Sequence; Conditionals; Iteration">2.3.1.b</li>
+<li title="2.3.1.c : understand and use suitable loops including count and condition controlled loops">2.3.1.c</li>
+<li title="2.3.1.d : use different types of data including Boolean, string, integer and real appropriately in solutions to problems">2.3.1.d</li>
+<li title="2.3.1.e : understand and use basic string manipulation">2.3.1.e</li>
+<li title="2.3.1.f : understand and use basic file handling operations: open, read, write and close">2.3.1.f</li>
+<li title="2.3.1.g : define and use arrays as appropriate when solving problems.">2.3.1.g</li>
+</ul></div>
+
+<h2><a href="#">2.3.2 Design</a></h2><div><ul>
+<li title="2.3.2.a : analyse and identify the requirements for a solution to the problem">2.3.2.a</li>
+<li title="2.3.2.b : design suitable algorithms to represent the solution to a problem">2.3.2.b</li>
+<li title="2.3.2.c : design suitable input and output formats and navigation methods for their system">2.3.2.c</li>
+<li title="2.3.2.d : identify the data requirements for their system">2.3.2.d</li>
+<li title="2.3.2.e : identify suitable variables and structures with appropriate validation for their system">2.3.2.e</li>
+<li title="2.3.2.f : identify test procedures to be used during and after development to check their system against the success criteria.">2.3.2.f</li>
+</ul></div>
+
+<h2><a href="#">2.3.3 Development</a></h2><div><ul>
+<li title="2.3.3.a : develop a solution to the identified problem using a suitable programming language">2.3.3.a</li>
+<li title="2.3.3.b : demonstrate testing and refinement of the code during development">2.3.3.b</li>
+<li title="2.3.3.c : explain the solution using suitable annotation and evidence of development.">2.3.3.c</li>
+</ul></div>
+
+<h2><a href="#">2.3.4 Testing and evaluation</a></h2><div><ul>
+<li title="2.3.4.a : use a suitable test plan and data to test the function of the system">2.3.4.a</li>
+<li title="2.3.4.b : test the system against the success criteria">2.3.4.b</li>
+<li title="2.3.4.c : provide good evidence of test procedures">2.3.4.c</li>
+<li title="2.3.4.d : modify the system, if required, to meet success criteria where these are not met">2.3.4.d</li>
+<li title="2.3.4.e : evaluate the system against the success criteria to establish how successful, or otherwise, their implementation has been.">2.3.4.e</li>
+</ul></div>
+
+
+</div>
+</div>
+
+<div id="cart" class="cart">
+<h1 class="ui-widget-header">Shopping Cart</h1>
+<div class="ui-widget-content">
+<ol>
+<li class="placeholder" title="tip">Add your items here</li>
+</ol>
+</div>
+</div>
+
+<div id="cart2" class="cart">
+<h1 class="ui-widget-header">Shopping Cart2</h1>
+<div class="ui-widget-content">
+<ol>
+<li class="placeholder">Add your items here</li>
+</ol>
+</div>
+</div>
+
+</body>
+</html>

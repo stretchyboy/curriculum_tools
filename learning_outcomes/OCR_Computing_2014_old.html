@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+    <title>Custom Elements</title>
+
+	<link href="../css/smoothness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+	<script src="../js/jquery-1.10.2.js"></script>
+	<script src="../js/jquery-ui-1.10.4.custom.js"></script>
+
+	<link rel="stylesheet" href="../education_planning_elements.css">
+	<script src="../education_planning_elements.js"></script>
+
+</head>
+<body>
+<h1>Education Planning Elements</h1>
+
+
+<!--Document with full spec  -->
+<!--Document full of leveled learning outcomes  with skeleton generated for each spec  -->
+
+<learning-outcomes  id="OCR_Computing_2014:2-1-1-d" spec="http://localhost/~martyn/planning2014/specs/OCR%20GCSE%202012.html#2-1-1-d">
+    <learning-outcome level="A">Evaluate the success of suitable professional standards in the development, use and maintenance of computer systems</learning-outcome>
+    <learning-outcome level="B">Explain the need for adherence to suitable professional standards in the development, use and maintenance of computer systems</learning-outcome>
+    <learning-outcome level="C">Identify 3 common professional standards in the development, use and maintenance of computer systems</learning-outcome>
+</learning-outcomes>
+
+
+<learning-outcomes id="OCR_Computing_2014:2-1-4-c:denary2binary" spec="http://localhost/~martyn/planning2014/specs/OCR%20GCSE%202012.html#2-1-4-c" title="Convert 8-bit binary numbers into positive denary whole numbers">
+    <learning-outcome level="A">Convert positive denary whole numbers (0-255) into 8-bit binary numbers (with 6 or more bits on)</learning-outcome>
+    <learning-outcome level="B">Convert positive denary whole numbers (0-255) into 8-bit binary numbers (with 4 or 5 bits on)</learning-outcome>
+    <learning-outcome level="C">Convert positive denary whole numbers (0-255) into 8-bit binary numbers (with 3 or less bits on)</learning-outcome>
+</learning-outcomes>
+
+<learning-outcomes id="OCR_Computing_2014:2-1-4-c:binary2denary" spec="http://localhost/~martyn/planning2014/specs/OCR%20GCSE%202012.html#2-1-4-c" title="Convert 8-bit binary numbers into positive denary whole numbers">
+    <learning-outcome level="A">Convert 8-bit binary numbers (with 6 or more bits on) into positive denary whole numbers</learning-outcome>
+    <learning-outcome level="B">Convert 8-bit binary numbers (with 4 or 5 bits on) into positive denary whole numbers</learning-outcome>
+    <learning-outcome level="C">Convert 8-bit binary numbers (with 3 or less bits on) into positive denary whole numbers</learning-outcome>
+</learning-outcomes>
+
+
+
+<!--Document of Course Plan which groups Leveled learning outcomes into lessons (not dated) -->
+<course-plan>
+    <lesson-outline>
+        <lesson-section loid="OCR_Computing_2014:2-1-4-c:binary2denary">
+            <activity type="kagan?">Big Paper version</activity>
+            <activity>Worked examples on paper</activity>
+            <activity duration="5 mins">Quiz on own devices (Taster to get them going for project time)</activity>
+            <activity type="project time" href="">Quiz on own devices/Surfaces</activity>
+            <activity type="project time" href="" todo="IT:Get printing from BYOD/Surfaces">Paper Quiz printed from own devices</activity>
+        </lesson-section>
+    </lesson-outline>
+</course-plan>
+
+
+<course-timetable>
+    <course-year startdate="" endate="">
+        <timetable-expection date="17/07/2014" period="all" reason="Strike" />
+        <timetable-expection date="17/07/2014" period="all" reason="Bank Holiday" />
+        <timetable-expection date="17/07/2014" period="all" reason="Holiday" />
+    </course-year>
+    <course-group name="10X" currentyear="" startlesson="">
+        <timetable-expection date="19/07/2014" period="3" reason="Visit" />
+        <timetable-expection date="21/07/2014" period="3" reason="Reteach" />
+    </course-group>
+
+</course-timetable>
+<!-- need something to layout the timings -->
+
+<!--Year plan (has the dates lessons and blank weeks) Lesson plans which refer to a scheme of work lesson -->
+
+
+<!--loads of Documents to  lesson plans Scheme of work which take lessons from the Course Plan and adds outline activities-->
+
+<!--
+
+
+<learning-outcome spec="http://localhost/~martyn/planning2014/specs/OCR%20GCSE%202012.html#2-1-1-d" level="A">Evaluate the success of suitable professional standards in the development, use and maintenance of computer systems</learning-outcome>
+
+
+<spec-elements>
+    <spec-reference src="specs/SUMO concept brief 2015.html#1" />
+    <spec-reference src="specs/OCR GCSE 2012.html#2.1.1.d" />
+    
+    <spec-basedocument src="specs/OCR GCSE 2012.html" junk="set the src document of all child spec-reference tags">  
+        <spec-reference src="2.1.1.c" />
+    </spec-basedocument>
+    
+    <spec-import src="specs/OCR GCSE 2012.html" junk="this one would import all the suitable items from a spec document in htmk"/>
+</spec-elements>
+
+<school-calendar></school-calendar>
+<course-timetable>
+    <lesson schoolweek="2" day="Monday" period="3" length="2"></lesson>
+</course-timetable>
+
+<scheme-of-work>
+    <lesson-outline>
+        <learning-outcome spec="specs/OCR GCSE 2012.html#2.1.1.d" level="A">Evaluate the success of suitable professional standards in the development, use and maintenance of computer systems</learning-outcome>
+        <learning-outcome spec="specs/OCR GCSE 2012.html#2.1.1.d" level="B">Explain the need for adherence to suitable professional standards in the development, use and maintenance of computer systems</learning-outcome>
+    </lesson-outline>
+    
+</scheme-of-work>
+
+
+
+<lesson-plan>
+
+    <lesson-outline>
+        <learning-outcome spec="specs/OCR GCSE 2012.html#2.1.1.d" level="A">Evaluate the success of suitable professional standards in the development, use and maintenance of computer systems</learning-outcome>
+        <learning-outcome spec="specs/OCR GCSE 2012.html#2.1.1.d" level="B">Explain the need for adherence to suitable professional standards in the development, use and maintenance of computer systems</learning-outcome>
+    </lesson-outline>
+    <literacy></literacy>
+    <activities junk="could this be a basis for materials / resources?">
+        <kagan></kagan>
+        <plenary></plenary>
+    </activities>
+
+</lesson-plan>
+
+-->
+
+
+<div id="datastore"></div>
+
+</body>
+</html>
